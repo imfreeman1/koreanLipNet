@@ -20,13 +20,13 @@ class Align(object):
 
     def build(self, align):
         self.align = self.strip(align, ['sp','sil'])
-        print self.align
+        # print self.align
         self.sentence = self.get_sentence(align)
-        print self.sentence
+        # print self.sentence
         self.label = self.get_label(self.sentence) #text_to_labels
-        print self.label
+        # print self.label
         self.padded_label = self.get_padded_label(self.label)
-        print self.padded_label
+        # print self.padded_label
 
     def strip(self, align, items):
         return [sub for sub in align if sub[2] not in items]

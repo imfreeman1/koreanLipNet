@@ -168,25 +168,25 @@ class BasicGenerator(keras.callbacks.Callback):
             if self.curriculum is not None:
                 video, align, video_unpadded_length = self.curriculum.apply(video, align)
             X_data.append(video.data)
-            print align.padded_label
-            print "label_length"
+            # print align.padded_label
+            # print "label_length"
             Y_data.append(align.padded_label)
             label_length.append(align.label_length) # CHANGED [A] -> A, CHECK!
             # input_length.append([video_unpadded_length - 2]) # 2 first frame discarded
             input_length.append(video.length) # Just use the video padded length to avoid CTC No path found error (v_len < a_len)
-            print "align.sentence"
-            print align.sentence
+            # print "align.sentence"
+            # print align.sentence
             source_str.append(align.sentence) # CHANGED [A] -> A, CHECK!
 
         source_str = np.array(source_str)
-        print "source_str ---"
-        print source_str
+        # print "source_str ---"
+        # print source_str
         label_length = np.array(label_length)
         input_length = np.array(input_length)
         Y_data = np.array(Y_data)
-        print "Y_data ---"
-        print Y_data
-        print "------"
+        # print "Y_data ---"
+        # print Y_data
+        # print "------"
         X_data = np.array(X_data).astype(np.float32) / 255 # Normalize image data to [0,1], TODO: mean normalization over training data
 
         inputs = {'the_input': X_data,

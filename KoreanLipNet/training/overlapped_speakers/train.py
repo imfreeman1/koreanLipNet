@@ -77,11 +77,11 @@ def train(run_name, speaker, start_epoch, stop_epoch, img_c, img_w, img_h, frame
                         initial_epoch=start_epoch,
                         verbose=1,
                         max_q_size=5,
-                        workers=2,
-                        pickle_safe=True)
+                        workers=2)
+                        # pickle_safe=True)
 
 if __name__ == '__main__':
     run_name = datetime.datetime.now().strftime('%Y:%m:%d:%H:%M:%S') # now time ex)2019:05:15:16:14:20
     speaker = sys.argv[1] # speaker : s{1}
-    train(run_name, speaker, 0, 5000, 3, 100, 50, 75, 32, 2) #5000 epoch color 100x50 75frames 32len string minibatch_size 50
+    train(run_name, speaker, 0, 5, 3, 100, 50, 75, 32, 2) #5000 epoch color 100x50 75frames 32len string minibatch_size 50
     # train(run_name, speaker, 0, 5000, 3, 100, 50, 75, 32, 50) #5000 epoch color 100x50 75frames 32len string minibatch_size 50

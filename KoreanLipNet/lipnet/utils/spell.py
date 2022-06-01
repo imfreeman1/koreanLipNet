@@ -84,7 +84,7 @@ class Spell(object):
         #return untokenize(sentence)
 
         print "sentence==="
-        print sentence
+        # print sentence
         print "unicode_sentence==="
         print unicode(sentence)
 
